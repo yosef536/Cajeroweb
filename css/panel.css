@@ -1,0 +1,353 @@
+/* ===== Tokens ===== */
+:root {
+    --primary: #0F6657;
+    --primary-dark: #0A3D34;
+    --primary-deeper: #062720;
+    --accent: #E8794A;
+    --bg: #F7F5EF;
+    --surface: #FFFFFF;
+    --ink: #1E2422;
+    --ink-soft: #5B655F;
+    --line: #E3DED2;
+
+    --radius-lg: 24px;
+    --radius-md: 16px;
+    --radius-sm: 10px;
+
+    --wrap: 1120px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Manrope', system-ui, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.5;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+h1,
+h2 {
+    margin: 0;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+p {
+    margin: 0;
+}
+
+.wrap {
+    max-width: var(--wrap);
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+}
+
+/* ===== Botones ===== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 22px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    border: 2px solid transparent;
+    transition: background 0.15s ease;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: #0C4F44;
+}
+
+.btn-ghost {
+    border-color: var(--line);
+    color: var(--ink);
+}
+
+.btn-ghost:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.btn-sm {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--primary);
+    letter-spacing: -0.03em;
+}
+
+/* ===== Formularios ===== */
+.form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--ink);
+}
+
+.form-input {
+    width: 100%;
+    min-width: 0;
+    padding: 12px 14px;
+    border-radius: var(--radius-sm);
+    border: 1.5px solid var(--line);
+    background: var(--surface);
+    font-family: inherit;
+    font-size: 1rem;
+    color: var(--ink);
+}
+
+.form-input:focus {
+    border-color: var(--primary);
+}
+
+.form-hint {
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 20px;
+}
+
+.form-group-inline {
+    max-width: 320px;
+}
+
+.form-message {
+    padding: 12px 16px;
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.form-message-error {
+    background: #FDECEC;
+    color: #B3261E;
+}
+
+.form-message-success {
+    background: #E4FBF3;
+    color: #007A5A;
+}
+
+.form-message-warning {
+    background: #FFF6E0;
+    color: #8A5B00;
+}
+
+/* ===== Panel de transacciones ===== */
+.panel-header {
+    border-bottom: 1px solid var(--line);
+    background: var(--surface);
+}
+
+.panel-header-inner {
+    height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.panel-header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.panel-greeting {
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+}
+
+.panel-layout {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 32px;
+    padding-top: 40px;
+    padding-bottom: 60px;
+    align-items: start;
+}
+
+.panel-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: 10px;
+    position: sticky;
+    top: 96px;
+}
+
+.panel-nav-item {
+    text-align: left;
+    padding: 12px 14px;
+    border-radius: var(--radius-sm);
+    border: none;
+    background: transparent;
+    font-family: inherit;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--ink-soft);
+    cursor: pointer;
+}
+
+.panel-nav-item:hover {
+    background: var(--bg);
+    color: var(--ink);
+}
+
+.panel-nav-item.is-active {
+    background: var(--primary);
+    color: #fff;
+}
+
+.panel-content {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: 40px;
+    min-height: 420px;
+}
+
+.panel-view {
+    display: none;
+}
+
+.panel-view.is-active {
+    display: block;
+}
+
+.panel-view h1 {
+    font-size: 1.5rem;
+    margin-bottom: 24px;
+}
+
+.panel-view h2 {
+    font-size: 1.05rem;
+    margin-bottom: 16px;
+}
+
+.panel-form {
+    max-width: 420px;
+}
+
+.panel-subsection {
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--line);
+}
+
+.panel-subsection:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.balance-card {
+    background: linear-gradient(135deg, var(--primary), #17A98C);
+    color: #fff;
+    border-radius: var(--radius-md);
+    padding: 28px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    max-width: 320px;
+}
+
+.balance-label {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.balance-amount {
+    font-size: 2.2rem;
+    font-weight: 800;
+}
+
+.movements-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+}
+
+.movements-table th {
+    text-align: left;
+    padding: 12px 14px;
+    border-bottom: 2px solid var(--line);
+    color: var(--ink-soft);
+    font-weight: 600;
+}
+
+.movements-table td {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--line);
+}
+
+.movements-empty {
+    color: var(--ink-soft);
+    text-align: center;
+    padding: 32px 14px;
+}
+
+@media (max-width: 900px) {
+    .panel-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .panel-nav {
+        position: static;
+        flex-direction: row;
+        overflow-x: auto;
+        gap: 6px;
+    }
+
+    .panel-nav-item {
+        white-space: nowrap;
+    }
+
+    .panel-content {
+        padding: 26px;
+    }
+}
+
+@media (max-width: 560px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
