@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de transacciones | Mi Plata</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="Style.css">
+</head>
+
+<body>
+
+    <header class="panel-header">
+        <div class="wrap panel-header-inner">
+            <a href="index.html" class="logo">Mi Plata</a>
+            <div class="panel-header-right">
+                <span class="panel-greeting">Hola, <strong id="user-greeting">Cliente</strong></span>
+                <a href="login.html" class="btn btn-ghost btn-sm">Cerrar sesión</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="panel-layout wrap">
+
+        <nav class="panel-nav" id="panel-nav">
+            <button class="panel-nav-item is-active" data-target="saldo">Consultar Saldo</button>
+            <button class="panel-nav-item" data-target="consignar">Consignar Dinero</button>
+            <button class="panel-nav-item" data-target="retirar">Retirar Dinero</button>
+            <button class="panel-nav-item" data-target="transferir">Transferir</button>
+            <button class="panel-nav-item" data-target="movimientos">Ver Movimientos</button>
+            <button class="panel-nav-item" data-target="perfil">Perfil</button>
+        </nav>
+
+        <main class="panel-content">
+
+            <section class="panel-view is-active" id="view-saldo">
+                <h1>Consultar saldo</h1>
+                <div class="form-group form-group-inline">
+                    <label for="producto-saldo">Producto</label>
+                    <select id="producto-saldo" class="form-input">
+                        <option>Cuenta de Ahorros</option>
+                        <option>Cuenta Corriente</option>
+                        <option>Tarjeta de Crédito</option>
+                    </select>
+                </div>
+                <div class="balance-card">
+                    <span class="balance-label">Saldo disponible</span>
+                    <span class="balance-amount" id="balance-amount">$0</span>
+                </div>
+            </section>
+
+            <section class="panel-view" id="view-consignar">
+                <h1>Consignar dinero</h1>
+                <div class="form-message form-message-success" id="consignar-message" hidden></div>
+                <form id="consignar-form" class="panel-form" novalidate>
+                    <div class="form-group">
+                        <label for="producto-consignar">Producto</label>
+                        <select id="producto-consignar" class="form-input">
+                            <option>Cuenta de Ahorros</option>
+                            <option>Cuenta Corriente</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="monto-consignar">Monto a consignar</label>
+                        <input type="number" id="monto-consignar" class="form-input" min="1" step="1" placeholder="0"
+                            required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Consignar</button>
+                </form>
+            </section>
+
+            <section class="panel-view" id="view-retirar">
+                <h1>Retirar dinero</h1>
+                <div class="form-message form-message-error" id="retirar-message" hidden></div>
+                <form id="retirar-form" class="panel-form" novalidate>
+                    <div class="form-group">
+                        <label for="producto-retirar">Producto</label>
+                        <select id="producto-retirar" class="form-input">
+                            <option>Cuenta de Ahorros</option>
+                            <option>Cuenta Corriente</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="monto-retirar">Monto a retirar</label>
+                        <input type="number" id="monto-retirar" class="form-input" min="1" step="1" placeholder="0"
+                            required>
+                    </div>
+                    <p class="form-hint">Cuenta de Ahorros aplica 1.5% de interés al retirar. Cuenta Corriente permite
+                        hasta 20% de sobregiro.</p>
+                    <button type="submit" class="btn btn-primary">Retirar</button>
+                </form>
+            </section>
+
+            <section class="panel-view" id="view-transferir">
+                <h1>Transferir</h1>
+                <div class="form-message form-message-warning" id="transferir-message" hidden></div>
+                <form id="transferir-form" class="panel-form" novalidate>
+                    <div class="form-group">
+                        <label for="producto-origen">Desde</label>
+                        <select id="producto-origen" class="form-input">
+                            <option>Cuenta de Ahorros</option>
+                            <option>Cuenta Corriente</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="destino-tipo">Destino</label>
+                        <select id="destino-tipo" class="form-input">
+                            <option value="propio">Otro producto propio</option>
+                            <option value="terceros">Cuenta de otro usuario</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="destino-valor">Usuario o producto destino</label>
+                        <input type="text" id="destino-valor" class="form-input"
+                            placeholder="Ej. Cuenta Corriente / usuario123" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="monto-transferir">Monto a transferir</label>
+                        <input type="number" id="monto-transferir" class="form-input" min="1" step="1" placeholder="0"
+                            required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Transferir</button>
+                </form>
+            </section>
+
+            <section class="panel-view" id="view-movimientos">
+                <h1>Movimientos</h1>
+                <table class="movements-table">
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Tipo</th>
+                            <th>Valor</th>
+                        </tr>
+                    </thead>
+                    <tbody id="movements-body">
+                        <tr>
+                            <td colspan="3" class="movements-empty">Aún no tienes movimientos registrados.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="panel-view" id="view-perfil">
+                <h1>Perfil</h1>
+
+                <div class="panel-subsection">
+                    <h2>Editar datos</h2>
+                    <form id="perfil-form" class="panel-form" novalidate>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="perfil-nombre">Nombre completo</label>
+                                <input type="text" id="perfil-nombre" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label for="perfil-celular">Celular</label>
+                                <input type="tel" id="perfil-celular" class="form-input">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                    </form>
+                </div>
+
+                <div class="panel-subsection">
+                    <h2>Cambiar contraseña</h2>
+                    <div class="form-message form-message-error" id="password-message" hidden></div>
+                    <form id="password-form" class="panel-form" novalidate>
+                        <div class="form-group">
+                            <label for="clave-actual">Contraseña actual</label>
+                            <input type="password" id="clave-actual" class="form-input" autocomplete="current-password">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="clave-nueva">Nueva contraseña</label>
+                                <input type="password" id="clave-nueva" class="form-input" autocomplete="new-password">
+                            </div>
+                            <div class="form-group">
+                                <label for="clave-nueva-confirm">Confirmar nueva contraseña</label>
+                                <input type="password" id="clave-nueva-confirm" class="form-input"
+                                    autocomplete="new-password">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Actualizar contraseña</button>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script type="module" src="src/panel.js"></script>
+</body>
+
+</html>

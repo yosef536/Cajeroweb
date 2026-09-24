@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear cuenta | Mi Plata</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="Style.css">
+</head>
+
+<body class="auth-body">
+
+    <header class="auth-header">
+        <div class="wrap auth-header-inner">
+            <a href="index.html" class="logo">Mi Plata</a>
+            <p class="auth-header-link">¿Ya tienes cuenta? <a href="login.html" class="link-quiet">Iniciar sesión</a>
+            </p>
+        </div>
+    </header>
+
+    <main class="auth-shell">
+        <div class="auth-card auth-card-wide">
+            <h1>Crea tu cuenta</h1>
+            <p class="auth-sub">Con estos datos abrimos tu perfil en Mi Plata.</p>
+
+            <div class="form-message form-message-error" id="registro-message" hidden></div>
+
+            <form id="registro-form" novalidate>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="documento">Número de identificación</label>
+                        <input type="text" id="documento" name="documento" class="form-input"
+                            placeholder="Cédula o pasaporte" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="celular">Número de celular</label>
+                        <input type="tel" id="celular" name="celular" class="form-input" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="nombre">Nombre completo</label>
+                    <input type="text" id="nombre" name="nombre" class="form-input" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="usuario">Nombre de usuario</label>
+                    <input type="text" id="usuario" name="usuario" class="form-input" autocomplete="username" required>
+                    <span class="form-hint">Debe ser único en el sistema.</span>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="password">Contraseña</label>
+                        <input type="password" id="password" name="password" class="form-input"
+                            autocomplete="new-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password-confirm">Confirmar contraseña</label>
+                        <input type="password" id="password-confirm" name="password-confirm" class="form-input"
+                            autocomplete="new-password" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">Crear cuenta</button>
+            </form>
+
+            <p class="auth-footer-link">
+                <a href="index.html" class="link-quiet">Volver al inicio</a>
+            </p>
+        </div>
+    </main>
+    <script type="module" src="src/registro.js"></script>
+</body>
+
+</html>

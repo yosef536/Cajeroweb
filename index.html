@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Plata | Banca simple, sin fricción</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="Style.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="wrap header-inner">
+            <a href="#" class="logo">Mi Plata</a>
+
+            <nav class="main-nav" id="main-nav">
+                <a href="#productos">Productos</a>
+                <a href="#nosotros">Nosotros</a>
+                <a href="#contacto">Ayuda</a>
+            </nav>
+
+            <div class="header-actions">
+                <a href="login.html" class="btn btn-ghost">Iniciar sesión</a>
+                <a href="registro.html" class="btn btn-primary">Crear cuenta</a>
+            </div>
+
+            <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="hero">
+            <div class="wrap hero-inner">
+                <div class="hero-copy">
+                    <h1>Tu plata, moviéndose a tu ritmo.</h1>
+                    <p class="hero-sub">Ahorros que rinden, una corriente sin trabas y una tarjeta que te avisa cuánto
+                        vas a pagar antes de que lo pagues. Todo en un mismo lugar.</p>
+                    <div class="hero-cta">
+                        <a href="registro.html" class="btn btn-primary btn-lg">Crear cuenta gratis</a>
+                        <a href="#productos" class="link-quiet">Ver los productos</a>
+                    </div>
+                </div>
+
+                <div class="hero-visual" aria-hidden="true">
+                    <div class="bank-card card-back"></div>
+                    <div class="bank-card card-front">
+                        <div class="card-top">
+                            <span class="card-chip"></span>
+                            <span class="card-brand">Mi Plata</span>
+                        </div>
+                        <div class="card-number">3211&nbsp;&nbsp;7788&nbsp;&nbsp;0099&nbsp;&nbsp;4420</div>
+                        <div class="card-bottom">
+                            <div>
+                                <span class="card-label">Titular</span>
+                                <span class="card-value">Cuenta corriente</span>
+                            </div>
+                            <div>
+                                <span class="card-label">Saldo disponible</span>
+                                <span class="card-value">$1.200.000</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="productos" id="productos">
+            <div class="wrap">
+                <h2>Tres productos, una sola cuenta</h2>
+                <p class="section-sub">Cada uno pensado para un momento distinto de tu plata.</p>
+
+                <div class="product-grid">
+                    <article class="product-card">
+                        <h3>Cuenta de Ahorros</h3>
+                        <p>Para guardar sin apuro. Tu dinero rinde mientras está quieto.</p>
+                        <div class="product-stat">
+                            <span class="stat-num">1.5%</span>
+                            <span class="stat-label">de interés mensual al retirar</span>
+                        </div>
+                    </article>
+
+                    <article class="product-card product-card-accent">
+                        <h3>Cuenta Corriente</h3>
+                        <p>Para el día a día: nómina, facturas y transferencias sin esperar.</p>
+                        <div class="product-stat">
+                            <span class="stat-num">20%</span>
+                            <span class="stat-label">de sobregiro sobre tu saldo</span>
+                        </div>
+                    </article>
+
+                    <article class="product-card">
+                        <h3>Tarjeta de Crédito</h3>
+                        <p>Compra a cuotas y mira el pago mensual antes de confirmar.</p>
+                        <div class="product-stat">
+                            <span class="stat-num">0%</span>
+                            <span class="stat-label">de interés hasta en 2 cuotas</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="features" id="nosotros">
+            <div class="wrap features-inner">
+                <div class="feature">
+                    <h3>Todo queda registrado</h3>
+                    <p>Cada consignación, retiro y transferencia queda en tu historial, ordenado y a la mano.</p>
+                </div>
+                <div class="feature">
+                    <h3>Seguridad desde el primer intento</h3>
+                    <p>Si algo no cuadra al iniciar sesión, te lo decimos de una — sin dejar tu cuenta expuesta.</p>
+                </div>
+                <div class="feature">
+                    <h3>Cero letra chiquita</h3>
+                    <p>Tasas e intereses visibles antes de que confirmes cualquier operación.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer" id="contacto">
+        <div class="wrap footer-inner">
+            <div class="footer-brand">
+                <span class="logo logo-light">Mi Plata</span>
+                <p>Banca digital simulada para fines académicos.</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Producto</h4>
+                <a href="#productos">Cuenta de Ahorros</a>
+                <a href="#productos">Cuenta Corriente</a>
+                <a href="#productos">Tarjeta de Crédito</a>
+            </div>
+
+            <div class="footer-col">
+                <h4>Empresa</h4>
+                <a href="#nosotros">Nosotros</a>
+                <a href="#contacto">Ayuda</a>
+                <a href="#registro">Crear cuenta</a>
+            </div>
+
+            <div class="footer-col">
+                <h4>Síguenos</h4>
+                <a href="#">Instagram</a>
+                <a href="#">X (Twitter)</a>
+                <a href="#">LinkedIn</a>
+            </div>
+        </div>
+        <div class="wrap footer-bottom">
+            <p>© 2026 Mi Plata Financial Bank. Proyecto de aula — CESDE.</p>
+        </div>
+    </footer>
+
+    <script>
+        const toggle = document.getElementById('nav-toggle');
+        const nav = document.getElementById('main-nav');
+        toggle.addEventListener('click', () => {
+            const isOpen = nav.classList.toggle('is-open');
+            toggle.setAttribute('aria-expanded', isOpen);
+        });
+    </script>
+
+</body>
+
+</html>
