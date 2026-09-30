@@ -12,7 +12,7 @@ document.getElementById("registro-form").addEventListener("submit", function (ev
     const password = document.getElementById("password").value;
     const passwordConfirm = document.getElementById("password-confirm").value;
 
-// 2. Validar que los campos no estén vacíos y que las contraseñas coincidan
+    // 2. Validar que los campos no estén vacíos y que las contraseñas coincidan
 
     if (documento === "" || celular === "" || nombre === "" || usuario === "" || password === "") {
         alert("Por favor, completa todos los campos.");
@@ -24,7 +24,7 @@ document.getElementById("registro-form").addEventListener("submit", function (ev
         return;
     }
 
-// 3. Crear un nuevo cliente
+    // 3. Crear un nuevo cliente
     //guardar los datos en el localStorage
     const nuevoCliente = new Cliente(documento, nombre, celular, usuario, password);
 
@@ -44,6 +44,17 @@ document.getElementById("registro-form").addEventListener("submit", function (ev
 
     // 3. Guardar la lista completa de vuelta
     localStorage.setItem("clientes", JSON.stringify(clientesGuardados));
+
+    const cuentasGuardadas = JSON.parse(localStorage.getItem("cuentas")) || [];
+
+    const nuevasCuentas = [
+        { numeroCuenta: `${documento}-AHO`, tipo: "ahorros", saldo: 0, clienteUsuario: usuario, movimientos: [] },
+        { numeroCuenta: `${documento}-COR`, tipo: "corriente", saldo: 0, clienteUsuario: usuario, movimientos: [] },
+        { numeroCuenta: `${documento}-TC`, tipo: "tarjeta", saldo: 2000000, clienteUsuario: usuario, movimientos: [] },
+    ];
+
+    cuentasGuardadas.push(...nuevasCuentas);
+    localStorage.setItem("cuentas", JSON.stringify(cuentasGuardadas));
 
     alert("Cuenta creada con éxito. Ahora puedes iniciar sesión.");
     window.location.href = "login.html";
