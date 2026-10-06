@@ -52,4 +52,8 @@ export default class Cuenta {
         Cliente: ---> ${this.#cliente.mostrarInformacion()}\n
         ---------FIN DE LOS DATOS DE LA CUENTA---------`
     }
+
+    cargarMovimientos(lista) {
+        this.#movimientos = lista || [];
+    }
 }
