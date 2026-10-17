@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -30,6 +31,10 @@
             <button class="panel-nav-item is-active" data-target="saldo">Consultar Saldo</button>
             <button class="panel-nav-item" data-target="consignar">Consignar Dinero</button>
             <button class="panel-nav-item" data-target="retirar">Retirar Dinero</button>
+
+            <!-- NUEVO: botón para comprar con tarjeta -->
+            <button class="panel-nav-item" data-target="comprar">Comprar con Tarjeta</button>
+
             <button class="panel-nav-item" data-target="transferir">Transferir</button>
             <button class="panel-nav-item" data-target="movimientos">Ver Movimientos</button>
             <button class="panel-nav-item" data-target="perfil">Perfil</button>
@@ -92,6 +97,42 @@
                     <p class="form-hint">Cuenta de Ahorros aplica 1.5% de interés al retirar. Cuenta Corriente permite
                         hasta 20% de sobregiro.</p>
                     <button type="submit" class="btn btn-primary">Retirar</button>
+                </form>
+            </section>
+
+            <section class="panel-view" id="view-comprar">
+                <h1>Comprar con tarjeta de crédito</h1>
+
+                <div class="form-message form-message-warning" id="comprar-message" hidden></div>
+
+                <form id="comprar-form" class="panel-form" novalidate>
+                    <div class="form-group">
+                        <label for="monto-comprar">Monto de la compra</label>
+                        <input type="number" id="monto-comprar" class="form-input"
+                            min="1" step="1" placeholder="0" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cuotas-comprar">Número de cuotas</label>
+                        <select id="cuotas-comprar" class="form-input" required>
+                            <option value="1">1 cuota</option>
+                            <option value="2">2 cuotas</option>
+                            <option value="3">3 cuotas</option>
+                            <option value="4">4 cuotas</option>
+                            <option value="5">5 cuotas</option>
+                            <option value="6">6 cuotas</option>
+                            <option value="12">12 cuotas</option>
+                            <option value="18">18 cuotas</option>
+                            <option value="24">24 cuotas</option>
+                        </select>
+                    </div>
+
+                    <p class="form-hint">
+                        De 1 a 2 cuotas: sin intereses. De 3 a 6 cuotas: 1.9% mensual.
+                        Para más de 6 cuotas: 2.3% mensual.
+                    </p>
+
+                    <button type="submit" class="btn btn-primary">Realizar compra</button>
                 </form>
             </section>
 
@@ -188,8 +229,10 @@
                     </form>
                 </div>
             </section>
+
         </main>
     </div>
+
     <script type="module" src="src/panel.js"></script>
 </body>
 
