@@ -292,3 +292,34 @@ document.getElementById("transferir-form").addEventListener("submit", function (
     document.getElementById("transferir-message").hidden = false;
     document.getElementById("transferir-message").textContent = "Transferencia exitosa.";
 });
+
+
+document.getElementById("comprar-form").addEventListener("submit", function (evento) {
+    evento.preventDefault();
+
+    const monto = Number(document.getElementById("monto-comprar").value);
+    const cuotas = Number(document.getElementById("cuotas-comprar").value);
+
+    const tarjeta = buscarCuentaPorTipo("tarjeta");
+    const mensaje = document.getElementById("comprar-message");
+
+    if (!tarjeta) {
+        mensaje.hidden = false;
+        mensaje.textContent = "No tienes una tarjeta de crédito registrada.";
+        return;
+    }
+
+    const resultado = tarjeta.comprar(monto, cuotas);
+
+    mensaje.hidden = false;
+    mensaje.textContent = resultado;
+
+    // Guardar únicamente si la compra fue exitosa.
+    if (resultado.startsWith("Compra exitosa")) {
+        guardarCuentas();
+        actualizarSaldoMostrado();
+
+        document.getElementById("comprar-form").reset();
+    }
+});
+
